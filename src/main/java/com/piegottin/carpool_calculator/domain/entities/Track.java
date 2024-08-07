@@ -1,9 +1,7 @@
 package com.piegottin.carpool_calculator.domain.entities;
 
 import jakarta.persistence.*;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.List;
 import java.util.UUID;
@@ -12,6 +10,8 @@ import java.util.UUID;
 @Getter
 @Setter
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
 public class Track {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
