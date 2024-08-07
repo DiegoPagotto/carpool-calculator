@@ -2,6 +2,10 @@ package com.piegottin.carpool_calculator.persistence.repositories;
 
 import com.piegottin.carpool_calculator.domain.entities.Track;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface TrackRepository extends JpaRepository<Track, Long> {
+import java.util.UUID;
+
+@Repository
+public interface TrackRepository extends JpaRepository<Track, UUID> {
 }
