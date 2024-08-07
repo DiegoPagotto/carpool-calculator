@@ -1,8 +1,6 @@
 package com.piegottin.carpool_calculator.domain.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,6 +14,7 @@ import java.util.UUID;
 @Entity
 public class Track {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID uuid;
     private String name;
     private double distanceInKm;
