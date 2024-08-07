@@ -20,6 +20,7 @@ public class Carpool {
     private Date date;
     private int numberOfPassengers;
     private double amountPaidByPassenger;
-    @OneToMany
+    
+    @OneToMany(fetch = FetchType.EAGER)
     private List<Expense> expenses;
 }

@@ -19,6 +19,7 @@ public class Track {
     private String name;
     private double distanceInKm;
     private double pricePerKm;
-    @OneToMany
+
+    @OneToMany(fetch = FetchType.EAGER)
     private List<Carpool> carpools;
 }
