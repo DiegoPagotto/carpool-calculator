@@ -1,9 +1,7 @@
 package com.piegottin.carpool_calculator.domain.entities;
 
 import jakarta.persistence.*;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.Date;
 import java.util.List;
@@ -13,6 +11,8 @@ import java.util.UUID;
 @Getter
 @Setter
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
 public class Carpool {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -20,7 +20,7 @@ public class Carpool {
     private Date date;
     private int numberOfPassengers;
     private double amountPaidByPassenger;
-    
+
     @OneToMany(fetch = FetchType.EAGER)
     private List<Expense> expenses;
 }
