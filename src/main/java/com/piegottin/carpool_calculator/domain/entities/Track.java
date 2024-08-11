@@ -22,4 +22,8 @@ public class Track {
 
     @OneToMany(fetch = FetchType.EAGER)
     private List<Carpool> carpools;
+
+    public void addCarpool(Carpool carpool) {
+        carpools.add(carpool);
+    }
 }
