@@ -1,5 +1,6 @@
 package com.piegottin.carpool_calculator.domain.services;
 
+import com.piegottin.carpool_calculator.domain.entities.Carpool;
 import com.piegottin.carpool_calculator.domain.entities.Track;
 import com.piegottin.carpool_calculator.persistence.repositories.TrackRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,8 @@ import java.util.UUID;
 public class TrackService {
     @Autowired
     private TrackRepository trackRepository;
+    @Autowired
+    private CarpoolService carpoolService;
 
     public List<Track> getAllTracks() {
         return trackRepository.findAll();
@@ -30,5 +33,12 @@ public class TrackService {
         Track track = getTrackById(id);
         trackRepository.delete(track);
         return track;
+    }
+
+    public Track addCarpoolToTrack(UUID trackId, UUID carpoolId) {
+        Track track = getTrackById(trackId);
+        Carpool carpool = carpoolService.getCarpoolById(carpoolId);
+        track.addCarpool(carpool);
+        return trackRepository.save(track);
     }
 }
