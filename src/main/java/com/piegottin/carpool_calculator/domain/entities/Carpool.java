@@ -23,4 +23,9 @@ public class Carpool {
 
     @OneToMany(fetch = FetchType.EAGER)
     private List<Expense> expenses;
+
+    public double calculateTotalProfit() {
+        double totalExpenses = expenses.stream().mapToDouble(Expense::getValue).sum();
+        return amountPaidByPassenger * numberOfPassengers - totalExpenses;
+    }
 }
