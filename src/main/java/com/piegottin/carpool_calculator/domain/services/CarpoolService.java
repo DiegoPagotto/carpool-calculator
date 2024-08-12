@@ -31,4 +31,9 @@ public class CarpoolService {
         carpoolRepository.delete(carpool);
         return carpool;
     }
+
+    public double getTotalProfit(UUID id) {
+        Carpool carpool = getCarpoolById(id);
+        return carpool.calculateTotalProfit();
+    }
 }
