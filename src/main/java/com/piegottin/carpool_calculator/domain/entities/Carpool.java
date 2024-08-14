@@ -28,4 +28,12 @@ public class Carpool {
         double totalExpenses = expenses.stream().mapToDouble(Expense::getValue).sum();
         return amountPaidByPassenger * numberOfPassengers - totalExpenses;
     }
+
+    public void addExpense(Expense expense) {
+        expenses.add(expense);
+    }
+
+    public void removeExpense(Expense expense) {
+        expenses.remove(expense);
+    }
 }
