@@ -38,4 +38,14 @@ public class CarpoolController {
     public Carpool updateCarpool(@RequestBody Carpool carpool) {
         return carpoolService.saveCarpool(carpool);
     }
+
+    @PostMapping
+    public void addExpense(@PathVariable UUID carpoolId, @PathVariable UUID expenseId) {
+        carpoolService.addExpense(carpoolId, expenseId);
+    }
+    
+    @PostMapping
+    public void removeExpense(@PathVariable UUID carpoolId, @PathVariable UUID expenseId) {
+        carpoolService.removeExpense(carpoolId, expenseId);
+    }
 }
