@@ -38,4 +38,9 @@ public class TrackController {
     public Track updateTrack(@RequestBody Track track) {
         return trackService.saveTrack(track);
     }
+
+    @PostMapping("/{trackId}/addCarpool/{carpoolId}")
+    public void addCarpool(@PathVariable UUID trackId, @PathVariable UUID carpoolId) {
+        trackService.addCarpoolToTrack(trackId, carpoolId);
+    }
 }
